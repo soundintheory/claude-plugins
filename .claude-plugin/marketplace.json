@@ -1,5 +1,9 @@
 {
   "name": "soundintheory-claude-plugins",
+  "owner": {
+    "name": "Sound in Theory",
+    "email": "enquiries@soundintheory.co.uk"
+  },
   "description": "Sound in Theory shared Claude Code plugin marketplace",
   "url": "https://github.com/soundintheory/claude-plugins",
   "plugins": [
