@@ -1,0 +1,8 @@
+{
+  "name": "example-plugin",
+  "description": "A starter template demonstrating Claude Code plugin structure with both model-invoked and user-invoked skills",
+  "author": {
+    "name": "Sound in Theory",
+    "email": "enquiries@soundintheory.co.uk"
+  }
+}
