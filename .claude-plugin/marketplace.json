@@ -1,55 +1,17 @@
 {
-  "name": "soundintheory",
+  "name": "soundintheory-claude-plugins",
   "description": "Sound in Theory shared Claude Code plugin marketplace",
   "url": "https://github.com/soundintheory/claude-plugins",
   "plugins": [
     {
       "name": "example-plugin",
-      "description": "A starter template demonstrating Claude Code plugin structure with both model-invoked and user-invoked skills",
-      "path": "plugins/example-plugin",
-      "author": {
-        "name": "Sound in Theory",
-        "email": "enquiries@soundintheory.co.uk"
-      },
-      "skills": [
-        {
-          "name": "example-skill",
-          "type": "model-invoked",
-          "description": "Reference template for building model-invoked skills",
-          "version": "1.0.0"
-        },
-        {
-          "name": "example-command",
-          "type": "user-invoked",
-          "description": "An example slash command demonstrating the user-invoked skill format",
-          "command": "/example-command",
-          "argument-hint": "<message> [--option]",
-          "version": "1.0.0"
-        }
-      ]
+      "source": "./plugins/example-plugin",
+      "description": "A starter template demonstrating Claude Code plugin structure with both model-invoked and user-invoked skills"
     },
     {
       "name": "piranha",
-      "description": "A collection of tools for implementing various Piranha CMS functionality",
-      "path": "plugins/piranha",
-      "author": {
-        "name": "Sound in Theory",
-        "email": "enquiries@soundintheory.co.uk"
-      },
-      "skills": [
-        {
-          "name": "cropped-image-field",
-          "type": "model-invoked",
-          "description": "Comprehensive guidance on using CroppedImageField from SoundInTheory.Piranha.MediaExtensions.Images",
-          "version": "1.0.0"
-        },
-        {
-          "name": "custom-field-types",
-          "type": "model-invoked",
-          "description": "Guidance on creating custom field types in Piranha CMS",
-          "version": "1.0.0"
-        }
-      ]
+      "source": "./plugins/piranha",
+      "description": "A collection of tools for implementing various Piranha CMS functionality"
     }
   ]
 }
