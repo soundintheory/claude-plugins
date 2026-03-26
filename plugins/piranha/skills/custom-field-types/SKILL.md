@@ -195,7 +195,12 @@ to make this available.
 
 We usually have a folder containing these vue components somewhere like `resources/assets/manager/js/components` that is
 built by Vite and auto registers the vue components by their file name (eg. `resources/assets/manager/js/components/my-field.vue`
-would be registered as `my-field`). The built assets are usually already registered in Program.cs like this:
+would be registered as `my-field`).
+
+**If you cannot easily find the location for these manager vue components:** ask the user where they want you to put them
+before searching the entire project.
+
+The built assets are usually already registered in Program.cs like this:
 
 ```csharp
 App.Modules.Manager().Styles.Add("~/assets/manager/css/app.css?v=2");
