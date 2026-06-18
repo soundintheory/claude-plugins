@@ -1,0 +1,8 @@
+{
+  "name": "frontend-framework",
+  "description": "Conventions and guidance for building HTML/CSS/JS with the Sound in Theory vanilla-CSS + Vite frontend framework",
+  "author": {
+    "name": "Sound in Theory",
+    "email": "enquiries@soundintheory.co.uk"
+  }
+}

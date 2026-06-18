@@ -16,6 +16,11 @@
       "name": "piranha",
       "source": "./plugins/piranha",
       "description": "A collection of tools for implementing various Piranha CMS functionality"
+    },
+    {
+      "name": "frontend-framework",
+      "source": "./plugins/frontend-framework",
+      "description": "Conventions and guidance for building HTML/CSS/JS with the Sound in Theory vanilla-CSS + Vite frontend framework"
     }
   ]
 }
