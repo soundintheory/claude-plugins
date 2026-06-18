@@ -6,7 +6,11 @@ vanilla-CSS + Vite frontend framework.
 The framework itself (the buildable Vite/PostCSS + CSS/JS source you scaffold a
 project from) lives in its own repository:
 
-**https://github.com/soundintheory/frontend-framework**
+**https://github.com/soundintheory/frontend-framework.git**
+
+```sh
+git clone https://github.com/soundintheory/frontend-framework.git
+```
 
 This plugin contains the skills that document how to use and extend it.
 

@@ -16,7 +16,11 @@ lazy-loading module loader (`app.js`) plus on-demand ES modules.
 This plugin is documentation; the buildable framework source lives in its own
 repo. To start a new site, scaffold from:
 
-> **https://github.com/soundintheory/frontend-framework**
+> **https://github.com/soundintheory/frontend-framework.git**
+
+```sh
+git clone https://github.com/soundintheory/frontend-framework.git
+```
 
 Clone it (or copy its `resources/`, `vite.config.js`, `postcss.config.js`,
 `package.json`, `.browserslistrc`) into the project, `npm install`, then
