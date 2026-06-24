@@ -121,6 +121,31 @@ with responsive `col-*` classes. Mobile-first: stack on small, split on larger.
 Full class list (containers, row modifiers, column widths, `hidden-*` helpers)
 is in building-pages.
 
+## Let copy wrap naturally — don't hardcode Figma line breaks
+
+The line breaks you see in a Figma text layer are an artifact of that artboard's
+width, **not** meaningful structure. Don't reproduce them by splitting a copy
+block into one `<span>` (or `<br>`) per visual line. Write the text as one
+continuous run and let it wrap responsively at each breakpoint.
+
+```html
+<!-- WRONG — forces three lines at every width -->
+<h2 class="tagline-band__headline">
+    <span>State of the art games</span>
+    <span>Fabulous cocktails</span>
+    <span>A grand night out</span>
+</h2>
+
+<!-- RIGHT — wraps naturally per breakpoint -->
+<h2 class="tagline-band__headline">State of the art games. Fabulous cocktails. A grand night out.</h2>
+```
+
+In the CSS this also means **no `span { display: block }`** (or `<br>`) added
+just to recreate the comp's wrapping. **Exception:** keep the spans when the
+line structure or per-word styling carries real design meaning — e.g. a hero
+wordmark where one word is a different colour. That's deliberate structure, not
+incidental wrapping.
+
 ## Document wiring (layout/head/body)
 
 In the master layout: eager CSS in `<head>`, `app.js` as a module before
@@ -168,6 +193,8 @@ These are expected, not optional:
 ## Checklist for a new block's markup
 
 - [ ] Single root element with the kebab-case block class.
+- [ ] Copy wraps naturally — no per-line `<span>`/`<br>` reproducing Figma's
+      line breaks (unless line structure carries real design meaning).
 - [ ] Child elements use short semantic classes (scoped by nesting, not BEM).
 - [ ] Behaviour wired via `data-module` / `data-module-lazy` (lazy below fold).
 - [ ] Its CSS is linked (`window.lazyStyles` or `<link embedded/lazy>` per project).
