@@ -307,3 +307,46 @@ When adding a new CroppedImageField:
 - [ ] Provide alt text from Media.AltText with meaningful fallback
 - [ ] Consider responsive images with `<picture>` element
 - [ ] Consider high DPI displays with 2x srcset where appropriate
+
+ 
+  ## Generating Image URLs in C# Code (Page Models / Services)
+
+  `ImageCrop.CropImage()` and the `image=` tag helper are Razor-only — they cannot be
+  instantiated in page model C# code. When you need to pre-resolve image URLs in a
+  page model (e.g. for caching, for passing to a view model, or in `OnGet`/`OnGetPopup`
+  handlers), use `IApplicationService.Media.ResizeImage()` instead.
+
+  ### Inject IApplicationService
+
+  ```csharp
+  using Piranha.AspNetCore.Services;
+
+  public class MyPageModel(
+      IApi api,
+      IModelLoader loader,
+      IApplicationService webApp)
+      : SinglePost<MyPost>(api, loader)
+
+  Generate resized URLs
+
+  // Returns a relative URL string ready for Url.Content()
+  string url = Url.Content(webApp.Media.ResizeImage(imageField, width, height));
+
+  // Width only (height = 0 preserves aspect ratio)
+  string url = Url.Content(webApp.Media.ResizeImage(imageField, 800, 0));
+
+  imageField can be a CroppedImageField, ImageField, or any other Piranha media field.
+
+  When to use each approach
+
+  ┌──────────────────────────────┬──────────────────────────────────────────────────────────────┐
+  │           Context            │                             Use                              │
+  ├──────────────────────────────┼──────────────────────────────────────────────────────────────┤
+  │ Razor template               │ <img image="@Model.Field" w="800" h="600" /> tag helper      │
+  ├──────────────────────────────┼──────────────────────────────────────────────────────────────┤
+  │ Razor template, explicit URL │ @Url.Content(ImageCrop.CropImage(Model.Field, 800, 600))     │
+  ├──────────────────────────────┼──────────────────────────────────────────────────────────────┤
+  │ C# page model / service      │ Url.Content(webApp.Media.ResizeImage(field, 800, 600))       │
+  ├──────────────────────────────┼──────────────────────────────────────────────────────────────┤
+  │ C# with no Url helper        │ webApp.Media.ResizeImage(field, 800, 600) (returns raw path) │
+  └──────────────────────────────┴──────────────────────────────────────────────────────────────┘
